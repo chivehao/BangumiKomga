@@ -89,7 +89,14 @@ class ParseTitle:
 
     def get_title(self, title):  
         '''
-        Get the first word from a title that is not in the corpus or vocabulary
+        Get the title from remove all square brackets.
+        '''
+        result = re.sub(r'[\(\)\[\]\{\}]', '', title)
+        return result
+    
+    def get_author(self, title):  
+        '''
+        Get the first word from a author that is not in the corpus or vocabulary
         '''
         # Iterate through the words in the title
         for word in split_words(title):
